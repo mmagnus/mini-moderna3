@@ -16,7 +16,7 @@ __status__ = "Production"
 
 
 from Bio.PDB  import Superimposer
-from util.Errors import ModernaSuperimposerError
+from moderna.util.Errors import ModernaSuperimposerError
 
 
 class ModernaSuperimposer:

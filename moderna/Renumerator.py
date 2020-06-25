@@ -15,7 +15,7 @@ __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
 
-from util.Errors import RenumeratorError
+from moderna.util.Errors import RenumeratorError
 
 class Renumerator:
     """
@@ -114,7 +114,7 @@ class Renumerator:
         fn = self.find_first_number(before, middle, after)
         id_generator = self.get_generator(fn, before, middle, after)
         identifiers = []
-        for x in middle: identifiers.append(id_generator.next())
+        for x in middle: identifiers.append(next(id_generator))
         return identifiers
     
     
@@ -150,5 +150,5 @@ def renumber_section(struc, start, end, new_start):
     from start..end, new numbers starting from new_start.
     """
     length = end-start+1
-    for old, new in zip(range(start, start + length), range(new_start, new_start+length)):
+    for old, new in zip(list(range(start, start + length)), list(range(new_start, new_start+length))):
         struc.renumber_residue(str(old), str(new))

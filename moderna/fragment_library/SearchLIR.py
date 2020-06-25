@@ -16,12 +16,12 @@ __status__ = "Production"
 
 import os
 from numpy import array
-from LIR import Lir, LirRecord
+from moderna.fragment_library.LIR import Lir, LirRecord
 from moderna.ModernaStructure import ModernaStructure
 from moderna.ModernaFragment import keep_first_last
 from moderna.FragmentInsertion import FragmentInserter
 from moderna.sequence.ModernaSequence import Sequence
-from StructureLibrary import library
+from moderna.fragment_library.StructureLibrary import library
 from moderna.util.Errors import LirError, SearchLirError
 
 from moderna.Constants import PATH_TO_LIR_STRUCTURES, \

@@ -18,7 +18,7 @@ from unittest import main, TestCase
 from moderna.ModernaStructure import ModernaStructure
 from moderna.util.Errors import ModernaStructureError
 
-from test_data import *
+from .test_data import *
 
 
 class CopyResidueTests(TestCase):

@@ -1,7 +1,7 @@
 
 # analyzes whether the backbones of RNA residues are connected.
 
-from GeometryParameters import BACKBONE_DIST_MATRIX, \
+from moderna.analyze.GeometryParameters import BACKBONE_DIST_MATRIX, \
     PHOSPHATE_DIST_MATRIX, O3_P_DIST_HI
 from moderna.Constants import BACKBONE_ATOMS,  \
     BACKBONE_RIBOSE_ATOMS_WITHOUT_O2

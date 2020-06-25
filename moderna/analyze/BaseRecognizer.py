@@ -15,10 +15,10 @@ __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
 
-from MolecularGraph import AnnotatedMolecule
-from MolTopologies import read_nucleotide_topologies
+from moderna.analyze.MolecularGraph import AnnotatedMolecule
+from moderna.analyze.MolTopologies import read_nucleotide_topologies
 from moderna.util.Errors import BaseRecognitionError
-from Constants import AMINO, STANDARD_BASES, HETERO_GROUPS, PHOSPHATE_GROUP, \
+from moderna.Constants import AMINO, STANDARD_BASES, HETERO_GROUPS, PHOSPHATE_GROUP, \
     NUCLEOTIDE_ATOMS
 from moderna.Constants import MODIFICATION_TOPOLOGY_FILE
 import re
@@ -61,7 +61,7 @@ class BaseRecognitionResult(object):
         otherwise None.
         """
         short_name = self.resi.resname
-        if AMINO.has_key(short_name):
+        if short_name in AMINO:
             self.abbrev = short_name
             return short_name
 
@@ -138,7 +138,7 @@ class BaseRecognitionResult(object):
         """returns an abbreviated name for the molecule"""
         restype = ""
         resn = re.sub('\s','',self.resi.resname.strip())
-        sub2 = filter(lambda x:x not in ('phosphate','desoxyriboside','riboside','purine','pyrimidine'),self.subunits)
+        sub2 = [x for x in self.subunits if x not in ('phosphate','desoxyriboside','riboside','purine','pyrimidine')]
         sub2.sort()
 
         restype = self.identify_phosphates(sub2, resn)

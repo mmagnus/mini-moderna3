@@ -34,9 +34,9 @@ from random import random
 from moderna.analyze.GeometryParameters import GeometryStandards
 from moderna.RNAChain import RNAChain
 from moderna.ModernaSuperimposer import ModernaSuperimposer
-from Bio.PDB.Vector import Vector, calc_angle, calc_dihedral
+from Bio.PDB.vectors import Vector, calc_angle, calc_dihedral
 from moderna.Constants import DATA_PATH
-from CoordBuilder import build_coord, get_ref_matrix
+from moderna.builder.CoordBuilder import build_coord, get_ref_matrix
 from moderna.analyze.RNASuites import BETA, DEFAULT_TORSIONS
 from Bio.PDB import NeighborSearch
 import math

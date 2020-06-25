@@ -16,17 +16,17 @@ __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
 
-from ModernaSuperimposer import ModernaSuperimposer
-from RNAResidue import RNAResidue
-from analyze.ClashRecognizer import ClashRecognizer
-from analyze.ChainConnectivity import is_chain_continuous
-from Renumerator import Renumerator
-from modifications import modify_residue
-from ModernaStructure import ModernaStructure
-from sequence.ModernaSequence import Sequence
-from FragmentInsertion import FragmentInserter
-from util.Errors import ModernaFragmentError
-from Constants import LIR_SUPERPOSITION5, LIR_SUPERPOSITION3, \
+from moderna.ModernaSuperimposer import ModernaSuperimposer
+from moderna.RNAResidue import RNAResidue
+from moderna.analyze.ClashRecognizer import ClashRecognizer
+from moderna.analyze.ChainConnectivity import is_chain_continuous
+from moderna.Renumerator import Renumerator
+from moderna.modifications import modify_residue
+from moderna.ModernaStructure import ModernaStructure
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.FragmentInsertion import FragmentInserter
+from moderna.util.Errors import ModernaFragmentError
+from moderna.Constants import LIR_SUPERPOSITION5, LIR_SUPERPOSITION3, \
     HELIX_SUPERPOSITION, SINGLE_PAIR, \
     PAIR_PURINE_SUPERPOSITION,  PAIR_PYRIMIDINE_SUPERPOSITION, \
     BASE_PAIR_PATH, WC_BASE_PAIRS

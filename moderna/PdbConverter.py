@@ -29,7 +29,7 @@ from Bio.PDB.Chain import Chain
 from Bio.PDB.Model import Model
 from Bio.PDB.Structure import Structure
 from Bio.PDB import PDBIO
-from moderna import ModernaResidue
+from .moderna import ModernaResidue
 
 
 class ConversionParameters():
@@ -166,8 +166,8 @@ Supports conversion between old and new pdb files:
         
         ribose_names = self.get_ribose_names_dict(at_name_list)
         p_names = self.get_p_names_dict(at_name_list)
-        ribose_old_names = ribose_names.keys()
-        p_old_names = p_names.keys()
+        ribose_old_names = list(ribose_names.keys())
+        p_old_names = list(p_names.keys())
         
         new_at_list = []
         for at in at_list:

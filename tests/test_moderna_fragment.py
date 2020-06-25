@@ -24,7 +24,7 @@ from moderna.sequence.ModernaSequence import Sequence
 from moderna.util.Errors import ModernaFragmentError, ModernaSuperimposerError
 from moderna.Constants import HELIX
 from moderna import load_template, create_model, copy_some_residues, create_fragment
-from test_data import *
+from .test_data import *
 import re
 
 

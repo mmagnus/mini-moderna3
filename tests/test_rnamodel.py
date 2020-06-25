@@ -27,7 +27,7 @@ from moderna.modifications import exchange_base
 from moderna import load_model, find_fragment, copy_some_residues, \
     insert_fragment, match_template_with_alignment, clean_structure, \
     renumber_chain, match_alignment_with_model
-from test_data import *
+from .test_data import *
 
 class RnaModelTests(TestCase):
 

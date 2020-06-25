@@ -27,8 +27,8 @@ from Bio.PDB.PDBParser import PDBParser
 from Bio.PDB.Structure import Structure
 from Bio.PDB.Model import Model
 from Bio.PDB.Chain import Chain
-from ChainConnectivity import are_residues_connected
-from Constants import ATOM_RADII, SEARCH_RADIUS
+from moderna.analyze.ChainConnectivity import are_residues_connected
+from moderna.Constants import ATOM_RADII, SEARCH_RADIUS
 
 class ClashRecognizer:
     """

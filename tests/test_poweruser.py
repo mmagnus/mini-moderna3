@@ -55,9 +55,9 @@ class PoweruserTests(TestCase):
             try:
                 s = ModernaStructure('file',path+fn)
                 succeeded += 1
-            except Exception,e:
-                print 'failed to load:',path+fn
-                print e
+            except Exception as e:
+                print('failed to load:',path+fn)
+                print(e)
         self.assertEqual(succeeded,loaded)
 
 

@@ -134,18 +134,18 @@ key - short abbreviation (one letter code)
 
     def set_short_original(self):
         """Creates short_original dict."""
-        for abbrev in self.keys():
+        for abbrev in list(self.keys()):
             if self[abbrev].short_abbrev != RESIDUE_WITHOUT_ONE_LETTER_ABBREV:
                 self._short_original[self[abbrev].short_abbrev] = self[abbrev]
         # add one defined entry for all entries without one letter abbreviations
-        if self.has_key(RESIDUE_WITHOUT_ONE_LETTER_ABBREV):
+        if RESIDUE_WITHOUT_ONE_LETTER_ABBREV in self:
             self._short_original[RESIDUE_WITHOUT_ONE_LETTER_ABBREV] = self[RESIDUE_WITHOUT_ONE_LETTER_ABBREV]
 
 
     def set_new_original(self):
         """Creates new_original dict."""
-        for abbrev in self.keys():         
-            if self[abbrev].new_abbrev not in self._new_original.keys():
+        for abbrev in list(self.keys()):         
+            if self[abbrev].new_abbrev not in list(self._new_original.keys()):
                 self._new_original[self[abbrev].new_abbrev] = self[abbrev]
 
 

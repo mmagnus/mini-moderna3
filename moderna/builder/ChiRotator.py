@@ -1,7 +1,7 @@
 
 from moderna.util.Errors import ModernaResidueError
 from moderna.Constants import BACKBONE_RIBOSE_ATOMS
-from Bio.PDB.Vector import rotaxis2m
+from Bio.PDB.vectors import rotaxis2m
 import math
 
 def rotate_chi(resi, angle=90):

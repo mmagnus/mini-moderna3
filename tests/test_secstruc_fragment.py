@@ -20,7 +20,7 @@ from moderna.sequence.ModernaSequence import Sequence
 from moderna.FragmentInsertion import FragmentInserter
 from moderna.Constants import HELIX
 from moderna import load_model
-from test_data import *
+from .test_data import *
 
 
 class ModernaFragment2DTests(TestCase):

@@ -16,14 +16,14 @@ __status__ = "Production"
 
 
 import re
-from RNAResidue import RNAResidue
-from RNAChain import RNAChain
-from sequence.ModernaSequence import Sequence
-from analyze.BasePairCalculator import base_pair_calc
-from builder.BackboneBuilder import BackboneBuilder
-from modifications import modify_residue
-from util.Errors import ModernaStructureError
-from util.LogFile import log
+from moderna.RNAResidue import RNAResidue
+from moderna.RNAChain import RNAChain
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.analyze.BasePairCalculator import base_pair_calc
+from moderna.builder.BackboneBuilder import BackboneBuilder
+from moderna.modifications import modify_residue
+from moderna.util.Errors import ModernaStructureError
+from moderna.util.LogFile import log
 
 #TODO: PDB structures 3ftm and 3fic are messed up. 
 # Should ModeRNA do something reasonable with them anyway?
@@ -72,7 +72,7 @@ class ModernaStructure(RNAChain):
         """
         #TODO: should be in RNAChain.
         residue_number = number or resi.identifier
-        if self.moderna_residues.has_key(residue_number): 
+        if residue_number in self.moderna_residues: 
             if strict:
                 raise ModernaStructureError('There is a residue with the number "%s" already'%residue_number)
             else:
@@ -220,7 +220,7 @@ class ModernaStructure(RNAChain):
         ss = ['.']*len(self)
         bplist = []
         for resi in self:
-            if not bp_dict.has_key(resi.identifier): continue
+            if resi.identifier not in bp_dict: continue
             res1 = resi.identifier
             for base_pair in bp_dict[res1]:
                 # set bracket symbols.

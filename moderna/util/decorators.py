@@ -15,8 +15,8 @@ __email__ = "krother@genesilico.pl"
 __status__ = "Production"
 
 
-from Errors import ModernaError, ParameterError
-from LogFile import log
+from .Errors import ModernaError, ParameterError
+from .LogFile import log
 from moderna.examples.usage_examples import COMMAND_EXAMPLES
 
 
@@ -51,14 +51,14 @@ def toplevel_function(func):
     """If a ModeRNA Error occurs, it will be written to the logfile.
     Also adds examples to the documentation strings.
     """
-    if not COMMAND_EXAMPLES.has_key(func.__name__):
+    if func.__name__ not in COMMAND_EXAMPLES:
         raise ValueError("No example for ModeRNA function: %s"%func.__name__)
     func.__doc__ += '\nExamples:\n%s'%COMMAND_EXAMPLES[func.__name__]
     
     def catch_and_log_errors(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except ModernaError, e: 
+        except ModernaError as e: 
             log.write_error(e)
             if log.raise_exceptions:
                 raise e

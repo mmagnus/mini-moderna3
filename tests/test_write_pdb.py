@@ -18,7 +18,7 @@ from unittest import main, TestCase
 from moderna.ModernaStructure import ModernaStructure
 from moderna.modifications import exchange_base, add_modification, remove_modification
 from Bio.PDB import PDBParser
-from test_data import *
+from .test_data import *
 
 TEST_OUTPUT = 'test_data/test_output.ent'
 

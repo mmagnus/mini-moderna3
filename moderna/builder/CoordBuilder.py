@@ -29,7 +29,7 @@ __status__ = "Production"
 
 
 from numpy import array, ndarray, cross, sqrt
-from Bio.PDB.Vector import Vector
+from Bio.PDB.vectors import Vector
 import math
 
 def get_ref_matrix(vec1, vec2, vec3):

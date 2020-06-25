@@ -16,8 +16,8 @@ __status__ = "Production"
 
 import os.path, os, math, re
 import Bio
-from analyze.Constants import *
-from builder.Constants import *
+from moderna.analyze.Constants import *
+from moderna.builder.Constants import *
 
 #######################   path settings  ############################
 

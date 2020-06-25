@@ -32,33 +32,33 @@ __status__ = "Production"
 
 """
 
-from util.LogFile import log
-from RNAModel import RnaModel
-from Template import Template
-from sequence.ModernaAlphabet import Alphabet
-from sequence.ModernaSequence import Sequence
-from sequence.RNAAlignment import read_alignment
-from ModelingRecipe import RecipeMaker
-from ModernaStructure import ModernaStructure
-from ModernaFragment import ModernaFragment53, ModernaFragment5, \
+from moderna.util.LogFile import log
+from moderna.RNAModel import RnaModel
+from moderna.Template import Template
+from moderna.sequence.ModernaAlphabet import Alphabet
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.sequence.RNAAlignment import read_alignment
+from moderna.ModelingRecipe import RecipeMaker
+from moderna.ModernaStructure import ModernaStructure
+from moderna.ModernaFragment import ModernaFragment53, ModernaFragment5, \
     ModernaFragment3, ModernaFragmentStrand, ModernaFragment2D
-from Helix import HelixBuilder, HelixFragmentBuilder
-from fragment_library.SearchLIR import *
-from analyze.ClashRecognizer import ClashRecognizer
-from analyze.GeometryAnalyzer import GeometryAnalyzer
-from analyze.StackingCalculator import StackingCalculator
-from builder.BackboneBuilder import BackboneBuilder
-from builder.ChiRotator import rotate_chi as rc
-import modifications
-from CheckPdb import PdbController
-from sequence.AlignmentMatcher import AlignmentMatcher
+from moderna.Helix import HelixBuilder, HelixFragmentBuilder
+from moderna.fragment_library.SearchLIR import *
+from moderna.analyze.ClashRecognizer import ClashRecognizer
+from moderna.analyze.GeometryAnalyzer import GeometryAnalyzer
+from moderna.analyze.StackingCalculator import StackingCalculator
+from moderna.builder.BackboneBuilder import BackboneBuilder
+from moderna.builder.ChiRotator import rotate_chi as rc
+from moderna import modifications
+from moderna.CheckPdb import PdbController
+from moderna.sequence.AlignmentMatcher import AlignmentMatcher
 
-from util.Errors import ModernaError
+from moderna.util.Errors import ModernaError
 
-from Constants import NUMBER_OF_FRAGMENT_CANDIDATES
+from .Constants import NUMBER_OF_FRAGMENT_CANDIDATES
 
-from util.decorators import toplevel_function
-from util.validators import validate_structure, validate_template, validate_model, \
+from .util.decorators import toplevel_function
+from .util.validators import validate_structure, validate_template, validate_model, \
     validate_alignment, validate_seq, validate_resnum, validate_resnum_list, \
     validate_resi, validate_fragment, validate_frag_candidate_list,  \
     validate_resi_list, validate_filename, validate_path, \
@@ -478,7 +478,7 @@ The user needs to give a structure object, and optionally a name of the file the
     pc = PdbController(st)
     if ex_log: pc.write_log(ex_log)
     else: log.write_message(str(pc))
-    if verbose: print pc
+    if verbose: print(pc)
     return pc
 
 
@@ -1114,7 +1114,7 @@ When ModeRNA terminates, any remaining messages will be written to 'moderna.log'
         log.set_filename(logfile_name)
         log.write_logfile()
     except IOError:
-        print 'problem writing log file to "%s"'%logfile_name
+        print(('problem writing log file to "%s"'%logfile_name))
     
 
 @toplevel_function

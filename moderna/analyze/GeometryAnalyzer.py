@@ -16,8 +16,8 @@ __status__ = "Production"
 
 
 from numpy import array
-from GeometryStatistics import AtomDefinition, GeometryStatistics
-from GeometryParameters import GeometryStandards
+from moderna.analyze.GeometryStatistics import AtomDefinition, GeometryStatistics
+from moderna.analyze.GeometryParameters import GeometryStandards
               
 class GeometryAnalyzer:
     standards = GeometryStandards()

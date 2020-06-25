@@ -16,10 +16,10 @@ __status__ = "Production"
 
 import os
 
-from sequence.RNAAlignment import RNAAlignmentParser, DEFAULT_SHRINK
-from Constants import STANDARD_BASES
-from util.Errors import AlignmentError
-from util.LogFile import log
+from moderna.sequence.RNAAlignment import RNAAlignmentParser, DEFAULT_SHRINK
+from moderna.Constants import STANDARD_BASES
+from moderna.util.Errors import AlignmentError
+from moderna.util.LogFile import log
 
 
 MODES = ['has_gap', 'is_mismatch', 'has_template_gap', \

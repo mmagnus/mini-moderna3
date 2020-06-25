@@ -32,7 +32,7 @@ class Renumerator(object):
                 gap_length += 1
             elif s!="_":
                 if s!="\xff":
-                    res_num = res_iter.next()
+                    res_num = next(res_iter)
                 if gap_length > 0:
                     gaps.append((start_pos + shift, gap_length))
                     shift += gap_length
@@ -68,7 +68,7 @@ class Renumerator(object):
         starting from count_from with an increment of 1.
         """
         id_gen = self.id_generator(count_from)
-        self.ids = [id_gen.next() for i in self.ids]
+        self.ids = [next(id_gen) for i in self.ids]
 
     def id_generator(self, first_id):
         """

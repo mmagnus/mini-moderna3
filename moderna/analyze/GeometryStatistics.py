@@ -14,7 +14,7 @@ __maintainer__ = "Kristian Rother"
 __email__ = "krother@rubor.de"
 __status__ = "beta"
 
-from Bio.PDB.Vector import Vector, calc_angle, calc_dihedral
+from Bio.PDB.vectors import Vector, calc_angle, calc_dihedral
 import os, math, re
     
 class GeometryError(Exception): pass
@@ -300,9 +300,9 @@ class GeometryStatistics(object):
                     a3 = self.get_atom_annotation(atom3)
                     a4 = self.get_atom_annotation(atom4)
                     result.append((self.calc_dihedral(atom1,atom2,atom3,atom4),a1,a2,a3,a4))
-                except ValueError,e:
-                    print str(e)
-                    print atom1.coord,atom2.coord,atom3.coord,atom4.coord
+                except ValueError as e:
+                    print((str(e)))
+                    print((atom1.coord,atom2.coord,atom3.coord,atom4.coord))
         return result
         
 class PDBSetGeometryStatistics(GeometryStatistics):
@@ -325,7 +325,7 @@ class PDBSetGeometryStatistics(GeometryStatistics):
     
 
 if __name__ == '__main__':
-    print """
+    print("""
     
 GeometryStatistics by Kristian.
 (c) 2008 Genesilico
@@ -376,4 +376,4 @@ The fourth segment 'cis/+/+(A/10)' describes a base pair.
 If no annotation was found, some of these descriptors may be missing.
 Also, a single residue may undergo more than one stacking/base pair interaction.
 
-"""
+""")

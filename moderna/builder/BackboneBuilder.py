@@ -25,10 +25,10 @@ __status__ = "Production"
 
 
 from moderna.analyze.GeometryParameters import GeometryStandards
-from PhosphateBuilder import PhosphateBuilder
+from moderna.builder.PhosphateBuilder import PhosphateBuilder
 from moderna.RNAResidue import RNAResidue
-from FCCDLoopCloser import FCCDLoopCloser
-from CoordBuilder import build_coord
+from moderna.builder.FCCDLoopCloser import FCCDLoopCloser
+from moderna.builder.CoordBuilder import build_coord
 from moderna.analyze.RNASuites import TORSIONS, DEFAULT_TORSIONS
 from moderna.analyze.ChainConnectivity import are_residues_connected, \
     is_backbone_intact, is_phosphate_intact, is_backbone_congested

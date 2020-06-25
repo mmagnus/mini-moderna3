@@ -14,15 +14,15 @@ __maintainer__ = "Magdalena Rother"
 __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
-from ModernaStructure import ModernaStructure
-from ModernaFragment import ModernaFragment53, ModernaFragment2D, \
+from moderna.ModernaStructure import ModernaStructure
+from moderna.ModernaFragment import ModernaFragment53, ModernaFragment2D, \
     ModernaFragment553, ModernaFragment533
-from FragmentInsertion import FragmentInserter
-from sequence.ModernaSequence import Sequence
-from Renumerator import renumber_section
-from Constants import HELIX, HELIX_SUPERPOSITION, WC_BASE_PAIRS
-from util.Errors import ModernaFragmentError
-from analyze.ChainConnectivity import are_residues_connected
+from moderna.FragmentInsertion import FragmentInserter
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.Renumerator import renumber_section
+from moderna.Constants import HELIX, HELIX_SUPERPOSITION, WC_BASE_PAIRS
+from moderna.util.Errors import ModernaFragmentError
+from moderna.analyze.ChainConnectivity import are_residues_connected
 
 
 class Helix(ModernaStructure):

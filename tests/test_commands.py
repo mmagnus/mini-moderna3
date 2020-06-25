@@ -25,7 +25,7 @@ from moderna.RNAModel import RnaModel
 from Bio.PDB import PDBParser
 from moderna.analyze.GeometryAnalyzer import GeometryAnalyzer
 from moderna.Constants import HELIX
-from test_data import *
+from .test_data import *
 import re
 
 OUTPUT = 'test_data/test_model_result.ent'
@@ -313,7 +313,7 @@ class CommandTests(TestCase):
     def test_find_modifications(self):
         """Finding modifications returns a dictionary."""
         mods = find_modifications(self.t)
-        self.assertTrue(mods.has_key('10'))
+        self.assertTrue('10' in mods)
         self.assertEqual(mods['10'].long_abbrev,'m2G')
         # KR: Check return type with MM
         
@@ -338,7 +338,7 @@ class CommandTests(TestCase):
         t = load_template(RNA_1EHZ, 'A')
         modifications = find_modifications(t)
         self.assertEqual(len(modifications),len(ehz_modifications))
-        keys = modifications.keys()
+        keys = list(modifications.keys())
         keys.sort()
         for i in range(len(ehz_modifications)):
             self.assertEqual(keys[i],ehz_modifications[i][0])

@@ -4,7 +4,7 @@ from moderna.ModelingRecipe import RecipeMaker
 from moderna.sequence.RNAAlignment import read_alignment
 import os
 
-from test_data import MINI_ALIGNMENT
+from .test_data import MINI_ALIGNMENT
 
 class RecipeMakerTests(TestCase):
     def setUp(self):
@@ -108,7 +108,7 @@ class RecipeMakerTests(TestCase):
                 return True
         else:
             # dot means: should be in no box.
-            for box in boxes.values():
+            for box in list(boxes.values()):
                 for box_ap in box:
                     if ap == box_ap:
                         return False

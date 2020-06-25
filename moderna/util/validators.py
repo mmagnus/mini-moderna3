@@ -24,7 +24,7 @@ from moderna.fragment_library.SearchLIR import LirHit, FragmentCandidates
 from moderna.RNAResidue import RNAResidue
 from moderna.sequence.ModernaSequence import Sequence
 from moderna.sequence.ModernaAlphabet import alphabet
-from Errors import ParameterError, AlphabetError
+from moderna.util.Errors import ParameterError, AlphabetError
 from moderna.sequence.RNAAlignment import RNAAlignment, read_alignment
 import os, re
 
@@ -111,7 +111,7 @@ def validate_resi_list(resi_list, length=None):
     
 def validate_alphabet(alpha):
     """Checks residue names."""
-    if alphabet.has_key(str(alpha)):
+    if str(alpha) in alphabet:
         return alphabet[str(alpha)].long_abbrev
     else:
         try:

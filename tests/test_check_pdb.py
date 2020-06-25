@@ -20,7 +20,7 @@ from moderna.sequence.ModernaSequence import Sequence
 from moderna.CheckPdb import PdbController
 from moderna import load_model
 import os
-from test_data import *
+from .test_data import *
 
 class CheckPdbTests(TestCase):
 

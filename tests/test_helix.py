@@ -19,7 +19,7 @@ from moderna.FragmentInsertion import FragmentInserter
 from moderna.util.Errors import ModernaFragmentError
 from moderna.Constants import HELIX
 from moderna import load_template, create_model, copy_some_residues, create_fragment, load_model
-from test_data import *
+from .test_data import *
 import re
 
 class HelixTests(TestCase):

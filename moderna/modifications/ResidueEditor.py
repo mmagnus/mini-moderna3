@@ -53,7 +53,7 @@ class ResidueEditor:
                 resi.detach_child(atom_name)
             for atom in fragment:
                 resi.add(atom)
-        except ModernaResidueError, e:
+        except ModernaResidueError as e:
             raise e
         except:
             raise ModernaResidueError('Residue %s: could not remove unnecessary and add proper atoms' % resi.identifier)
@@ -116,6 +116,6 @@ def make_backbone_only_residue(resi, include_N=True):
             resi.detach_child(atom.id)
 
     for at_name in backbone_atoms:
-        if at_name not in resi.child_dict.keys():
+        if at_name not in list(resi.child_dict.keys()):
             raise ModernaResidueError('Residue %s: backbone is not complete. Missing atom %s' %(resi.identifier, at_name))
     resi.change_name(ANY_RESIDUE)

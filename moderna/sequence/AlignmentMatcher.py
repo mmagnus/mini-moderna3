@@ -15,9 +15,9 @@ __email__ = "krother@genesilico.pl"
 __status__ = "Production"
 
 
-from ModernaSequence import Sequence
+from moderna.sequence.ModernaSequence import Sequence
 from moderna.util.LogFile import log
-from ModernaAlphabet import alphabet
+from moderna.sequence.ModernaAlphabet import alphabet
 from moderna.Constants import ANY_RESIDUE
 from moderna.util.Errors import AlignmentError
 

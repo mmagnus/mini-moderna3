@@ -19,12 +19,12 @@ from Bio.PDB import PDBParser, PDBIO
 from Bio.PDB.Structure import Structure
 from Bio.PDB.Model import Model
 from Bio.PDB.Chain import Chain
-from RNAResidue import RNAResidue
-from sequence.ModernaAlphabet import alphabet
-from sequence.ModernaSequence import Sequence
-from Constants import MISSING_RESIDUE
-from util.Errors import RNAChainError, ModernaStructureError
-from analyze.ChainConnectivity import are_residues_connected
+from moderna.RNAResidue import RNAResidue
+from moderna.sequence.ModernaAlphabet import alphabet
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.Constants import MISSING_RESIDUE
+from moderna.util.Errors import RNAChainError, ModernaStructureError
+from moderna.analyze.ChainConnectivity import are_residues_connected
 import os
 
 
@@ -76,7 +76,7 @@ class RNAChain:
         return PDBParser().get_structure('', filename)
 
     def _get_chain_from_struct(self, struct, chain_name):
-        if not struct[0].child_dict.has_key(chain_name):
+        if chain_name not in struct[0].child_dict:
             raise RNAChainError("Chain '%s' does not exist."%chain_name)
         return struct[0][chain_name]
 
@@ -93,13 +93,13 @@ class RNAChain:
     # 
     # data management
     #
-    def __nonzero__(self):
+    def __bool__(self):
         """RNAChains are always True."""
         return True
 
     def __len__(self):
         """Returns number of residues."""
-        return len(self.moderna_residues.keys())
+        return len(list(self.moderna_residues.keys()))
         
     def __repr__(self):
         return "<RNA structure; chain '%s'; %i residues>" % (self.chain_name, len(self))
@@ -110,7 +110,7 @@ class RNAChain:
         or a dict of residues (as ModernaResidues instances) with given numbers (key - number, value - ModernaResidue) 
         """
         if type(args) == str:
-            if args in self.moderna_residues.keys(): 
+            if args in list(self.moderna_residues.keys()): 
                 return self.moderna_residues[args]
             else: 
                 raise RNAChainError('There is no such residue: %s' %args)
@@ -222,8 +222,8 @@ class RNAChain:
         Sorts residues in a chain object (also negative numbers),
         so that they can be written in the right order.
         """
-        sorted_residues = sorted(self.moderna_residues.values(), \
-            cmp=self.cmp_for_moderna_residues)
+        from functools import cmp_to_key
+        sorted_residues = sorted(list(self.moderna_residues.values()), key=cmp_to_key(self.cmp_for_moderna_residues))
         sorted_residue_numbers = [resi.identifier for resi in sorted_residues]
         return sorted_residue_numbers
 

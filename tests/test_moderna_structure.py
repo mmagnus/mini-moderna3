@@ -102,7 +102,7 @@ class ModernaStructureTests(TestCase):
         s = ModernaStructure('file', RNA_1EHZ, ' ')
         resis = s.get_modified_residues()
         for r in resis:
-            print r, s[r]
+            print(r, s[r])
         self.assertEqual(len(resis), 0)
         
     def test_read_write_phosphate(self):

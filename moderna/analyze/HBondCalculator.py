@@ -15,10 +15,10 @@ __email__ = "krother@genesilico.pl"
 __status__ = "Prototype"
 # -*- coding: cp1250 -*-
 
-from Bio.PDB.Vector import calc_angle
+from Bio.PDB.vectors import calc_angle
 from math import degrees
-from Bio.PDB.Vector import Vector
-from Constants import MAX_C1_DIST, MAXD1, MAXD2
+from Bio.PDB.vectors import Vector
+from moderna.Constants import MAX_C1_DIST, MAXD1, MAXD2
 from moderna.Constants import BACKBONE_RIBOSE_ATOMS
 #TODO: bifurcated bonds
 #TODO: different parameter sets

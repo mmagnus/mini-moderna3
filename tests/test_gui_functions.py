@@ -16,7 +16,7 @@ __email__ = "krother@genesilico.pl"
 __status__ = "Production"
 
 from unittest import main, TestCase
-from test_data import *
+from .test_data import *
 from moderna import *
 from moderna.topology_matcher import topology_graph
 from numpy import array, ndarray

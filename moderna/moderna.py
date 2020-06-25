@@ -33,7 +33,7 @@ __status__ = "Production"
 """
 
 import sys, os
-from Constants import MODULE_PATH
+from moderna.Constants import MODULE_PATH
 
 #KR: manipulating the import order in sys.path 
 # to avoid a conflict between moderna/ and moderna.py
@@ -87,10 +87,10 @@ def parser_usage(parser, options):
         try:
             t = load_template(options.t_file, options.chain_name)
             if options.examine_template: 
-                print examine_structure(t)
+                print(examine_structure(t))
             if options.clean_template: 
                 clean_structure(t)
-            print 'TEMPLATE SEQUENCE:\n%s'%t.get_sequence()
+            print('TEMPLATE SEQUENCE:\n%s'%t.get_sequence())
            
         except KeyError:
             parser.error("Bad chain name. Add your template chain name as -c option")

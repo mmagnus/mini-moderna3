@@ -18,13 +18,13 @@ __status__ = "Production"
 import re,os
 
 from Bio.PDB.Atom import Atom
-from ModernaStructure import ModernaStructure
-from builder.PhosphateBuilder import TerminalPhosphateBuilder
-from analyze.ChainConnectivity import are_residues_connected, is_chain_continuous
+from moderna.ModernaStructure import ModernaStructure
+from moderna.builder.PhosphateBuilder import TerminalPhosphateBuilder
+from moderna.analyze.ChainConnectivity import are_residues_connected, is_chain_continuous
 
-from Constants import MISSING_RESIDUE, UNKNOWN_RESIDUE_SHORT, PHOSPHATE_GROUP, RIBOSE, BACKBONE_ATOMS, AA_ATOMS, \
+from moderna.Constants import MISSING_RESIDUE, UNKNOWN_RESIDUE_SHORT, PHOSPHATE_GROUP, RIBOSE, BACKBONE_ATOMS, AA_ATOMS, \
     BACKBONE_RIBOSE_ATOMS,  PHOSPHORYLATED_NUCLEOTIDES
-from util.LogFile import log
+from moderna.util.LogFile import log
 
 
 # what about aa

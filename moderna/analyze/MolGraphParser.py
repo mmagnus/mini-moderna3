@@ -14,7 +14,7 @@ __maintainer__ = "Kristian Rother"
 __email__ = "krother@rubor.de"
 __status__ = "Production"
 
-from MolParameters import *
+from .MolParameters import *
 import re
     
 
@@ -74,7 +74,7 @@ class Atom(dict):
             elem = bond.atom2.element
             neighbors.setdefault(elem,[])
             neighbors[elem].append(str(bond.valence))
-        k = neighbors.keys()
+        k = list(neighbors.keys())
         k.sort()
         atomtype = self.element
         for kk in k:
@@ -86,7 +86,7 @@ class Atom(dict):
         protortype = self.element
         if atomtype[0] != 'H':
             bonded_h = 0
-            if neighbors.has_key('H'): bonded_h = len(neighbors['H'])
+            if 'H' in neighbors: bonded_h = len(neighbors['H'])
             protortype += "%iH%i"%(len(self.bonds),bonded_h)
 
     def get_molstring(self, taboo_list,depth=-1):
@@ -178,7 +178,7 @@ class Molecule(list):
         if 0:
             for atom1, atom2 in zip(atoms, self):
                 atom2.detect_bonding_schema()
-                print atom1.fullname, atom2['bondschema']
+                print((atom1.fullname, atom2['bondschema']))
 
     def parse_molfile(self,filename):
         """

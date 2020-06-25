@@ -169,7 +169,7 @@ class GeometryStandards:
         for d in self.dihedrals: self.values[d] = self.dihedrals[d]
         
     def is_outlier(self, descriptor, value):
-        if not self.values.has_key(descriptor):
+        if descriptor not in self.values:
             return True
         for lower, upper in self.values[descriptor]:
             if lower <= value <= upper:

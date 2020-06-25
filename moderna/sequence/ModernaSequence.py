@@ -15,7 +15,7 @@ __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
 import re
-from ModernaAlphabet import alphabet
+from moderna.sequence.ModernaAlphabet import alphabet
 from moderna.Constants import STANDARD_BASES
 from moderna.util.Errors import SequenceError
 

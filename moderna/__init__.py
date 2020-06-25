@@ -25,4 +25,4 @@ __status__ = "Production"
 
 """
 
-from commands import *
+from moderna.commands import *

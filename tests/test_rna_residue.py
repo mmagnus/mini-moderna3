@@ -19,7 +19,7 @@ from Bio.PDB import PDBParser
 from moderna.util.Errors import RNAResidueError
 from moderna.sequence.ModernaAlphabet import Alphabet
 
-from test_data import *
+from .test_data import *
 
 class RNAResidueTests(TestCase):
     def setUp(self):

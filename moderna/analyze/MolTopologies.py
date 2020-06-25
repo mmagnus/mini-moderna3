@@ -299,7 +299,7 @@ class Pattern(object):
                 j += 1
                 
             if parenthese_level != -1:
-                print "MISMATCHED PARENTHESES IN PATTERN:",pattern
+                print(("MISMATCHED PARENTHESES IN PATTERN:",pattern))
 
         return (elem,subnodes,bool,index,valence)
 
@@ -308,7 +308,7 @@ class Pattern(object):
         elem,subnodes,boole,idd,valence = node
         if boole==0: return
         if idd!=0:
-            if circles.has_key(idd): return
+            if idd in circles: return
             else:
                 circles[idd] = True
         sumdict.setdefault(elem,0)

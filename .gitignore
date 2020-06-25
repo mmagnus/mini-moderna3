@@ -37,3 +37,5 @@ docs/_rst/*
 docs/_build/*
 cover/*
 MANIFEST
+bucket
+*bak

@@ -382,16 +382,16 @@ class GapInModelTests(TestCase):
         Target: 1WZ2 C (whole structure)
         """
         t = load_template('test_data/gaps/1h3e_B.pdb','B')
-        print examine_structure(t)
-        print t['16']
+        print(examine_structure(t))
+        print(t['16'])
         a = load_alignment('test_data/gaps/structure2_alignment.fasta')
-        print a
+        print(a)
         m = create_model(t, a)
         os.system('mkdir -p test_data/gaps/structure2_candidates1')
         old_candidates = os.listdir('test_data/gaps/structure2_candidates1')
         for x in old_candidates: 
             if x.startswith('model'): os.remove('test_data/gaps/structure2_candidates1/'+x)
-        print m
+        print(m)
         write_model(m,'test_data/gaps/structure2_candidates1/model_structure2.pdb')
         self.assertEqual(m.get_sequence(),  Sequence('GCGGGGGUUGCCGAGCCUGGUCAAAGGCGGGGGACUCAAGAUCCCCUCCCGUA.GGGUUCCGGGGUUCGAAUCCCCGCCCCCGCACCA'))
     

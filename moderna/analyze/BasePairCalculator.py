@@ -24,8 +24,8 @@ __email__ = "ms_arwi@wp.pl"
 __status__ = "alpha"
 
 
-from HBondCalculator import HBondCalculator
-from ChainConnectivity import is_ribose_complete
+from moderna.analyze.HBondCalculator import HBondCalculator
+from moderna.analyze.ChainConnectivity import is_ribose_complete
 from numpy import array
 from Bio.PDB.Atom import Vector
 
@@ -114,7 +114,7 @@ def validate_pair(resi1, resi2):
     
 def count_edges(atom, resi, ref_resi, edges, r1edge, r2edge):
     """Counts edges in h-bonds"""
-    for edge in edges.keys():
+    for edge in list(edges.keys()):
         if atom.get_name() in edges[edge]:
             if resi == ref_resi:
                 r1edge.append(edge)

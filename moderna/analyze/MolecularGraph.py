@@ -77,8 +77,8 @@ for atom in mol:
 
 """
 import os, re
-from MolTopologies import *
-from MolGraphParser import *
+from .MolTopologies import *
+from .MolGraphParser import *
 
 PERMUTATIONS = (
     [[0]],
@@ -108,11 +108,11 @@ class AnnotatedAtom(Atom):
         'charge' and 'free_electron_pairs' fields.
         Radicals are not considered here
         """
-        if OUTER_ELECTRONS.has_key(self.element):
+        if self.element in OUTER_ELECTRONS:
             outer = OUTER_ELECTRONS[self.element]
         else:
             outer = 1
-            print "UNKNOWN ELEMENT",self.element
+            print(("UNKNOWN ELEMENT",self.element))
         electrons  = 0
         free_pairs = 0
         charge     = 0
@@ -167,7 +167,7 @@ class AnnotatedAtom(Atom):
             # For ion bonds (en-diff>1.7), a warning will be printed
             if abs(en_diff) >= POLAR_BOND_MIN:
                 if abs(en_diff) > POLAR_BOND_MAX: 
-                    print "WARNING: Ion bond marked as bond with e.n.-difference of",en_diff
+                    print(("WARNING: Ion bond marked as bond with e.n.-difference of",en_diff))
                 else: 
                     self['partial_charge'] += en_diff*bond.valence
                     
@@ -185,7 +185,7 @@ class AnnotatedAtom(Atom):
             if bond.valence<len(bonds):
                 bonds[bond.valence] += 1
             else:
-                print "HUGE VALENCE FOUND",bond.valence
+                print(("HUGE VALENCE FOUND",bond.valence))
         total_bonds = bonds[1] + bonds[2]*2 + bonds[3]*3
         
         # check for single atoms
@@ -209,7 +209,7 @@ class AnnotatedAtom(Atom):
         Assigns H-donor and  H-acceptor attributes.
         """
         # identify h donors
-        if ELECTRONEGATIVITIES.has_key(self.element):
+        if self.element in ELECTRONEGATIVITIES:
             diff = ELECTRONEGATIVITIES[self.element]-ELECTRONEGATIVITIES['H']
         else:
             diff = -1
@@ -239,7 +239,7 @@ class AnnotatedAtom(Atom):
             for bond in self.bonds:
                 molstring = bond.atom2.get_molstring([self])
                 branches[molstring] = True
-            if len(branches.keys())>= 4:
+            if len(list(branches.keys()))>= 4:
                 # four different branches.. chiral.
                 self.add_attribute('chiral_atom')
 
@@ -377,7 +377,7 @@ class AnnotatedAtom(Atom):
         # and a True diagonal from [0][0] to [n][n] is looked for.
         if len(include_nodes) > self.n_bonds: return 0
         if len(self.bonds)>5:
-            print "MORE THAN FIVE BONDS ON ATOM, SKIPPING."
+            print("MORE THAN FIVE BONDS ON ATOM, SKIPPING.")
             return 0
         for permu in PERMUTATIONS[self.n_bonds-1]:
             diagonal = 1
@@ -446,7 +446,7 @@ class AnnotatedMolecule(Molecule):
             if s == 'H': continue
             if self.sum_formula.get(s,0) < sumdict[s]: return False
         for s in ['S','Se']:
-            if self.sum_formula.has_key(s) and not sumdict.has_key(s):
+            if s in self.sum_formula and s not in sumdict:
                 return False
         return True
         
@@ -492,7 +492,7 @@ class AnnotatedMolecule(Molecule):
 
     def test_condition(self,condition,atom,elem,bondtype,attributes,neighbors):
         result = 0
-        exec "if %s: result = 1"%(condition)
+        exec("if %s: result = 1"%(condition))
         return result
 
     

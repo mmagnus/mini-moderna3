@@ -14,7 +14,7 @@ __maintainer__ = "Magdalena Rother"
 __email__ = "rother.magdalena@gmail.com"
 __status__ = "Production"
 
-from ModernaStructure import ModernaStructure
+from moderna.ModernaStructure import ModernaStructure
 
 class Template(ModernaStructure):
     """

@@ -17,7 +17,7 @@ __status__ = "Production"
 from unittest import main, TestCase
 from Bio.PDB import PDBParser
 from moderna.ModernaSuperimposer import ModernaSuperimposer
-from test_data import *
+from .test_data import *
 from moderna.Constants import BASE_PATH
 
 A_SUPERIMPOSED_ON_C = {
@@ -48,7 +48,7 @@ class SuperimposerTests(TestCase):
         original_coord = a['N6'].coord[1]
         ModernaSuperimposer([c['N1'],c['C2'],c['C6']],[a['N9'],a['C4'],a['C8']],a.child_list)
        
-        self.failIfEqual(a['N6'].coord[1],original_coord)
+        self.assertNotEqual(a['N6'].coord[1],original_coord)
 
 
     def test_superimposition2(self):

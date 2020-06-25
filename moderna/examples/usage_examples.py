@@ -202,5 +202,5 @@ write_secstruc(m, '1F1T_secondary_structure.vienna')"""
 }
 
 # list of all commands
-COMMANDS = COMMAND_EXAMPLES.keys()
+COMMANDS = list(COMMAND_EXAMPLES.keys())
 COMMANDS.sort()

@@ -21,7 +21,7 @@ from Bio.PDB.PDBParser import PDBParser
 from moderna.util.Errors import RNAChainError
 from moderna.sequence.ModernaSequence import Sequence
 
-from test_data import *
+from .test_data import *
 
 OUTPUT = 'test_data/test_output.ent'
 

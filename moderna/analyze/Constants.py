@@ -33,7 +33,7 @@ NUCLEOTIDE_ATOMS = {
 
 PHOSPHATE_GROUP = set(['P', 'OP1', 'OP2', 'OP3'])
 
-STANDARD_BASES = NUCLEOTIDE_ATOMS.keys()
+STANDARD_BASES = list(NUCLEOTIDE_ATOMS.keys())
 
 AMINO = {'ALA':'A', 'CYS':'C', 'ASP':'D', 'GLU':'E', 'PHE':'F',
          'GLY':'G', 'HIS':'H', 'ILE':'I', 'LYS':'K', 'LEU':'L',            

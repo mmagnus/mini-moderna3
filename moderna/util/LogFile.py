@@ -44,12 +44,12 @@ class Log:
         self.raise_exceptions = True
         self.print_all = False
 
-    def __del__(self):
-        """
-        It is called before an object of this class is destroyed.
-        """
-        if self.contents:
-            self.write_logfile()
+    ## def __del__(self):
+    ##     """
+    ##     It is called before an object of this class is destroyed.
+    ##     """
+    ##     if self.contents:
+    ##         self.write_logfile()
 
     def set_filename(self,name):
         """Sets the name of the log file."""
@@ -60,7 +60,7 @@ class Log:
         """Adds a string message to the log."""
         self.contents.append(message+'\n')
         if self.print_all:
-            print message
+            print(message)
             
 
     def write_error(self, error):
@@ -74,12 +74,10 @@ class Log:
 
     def write_logfile(self):
         """Writes all log messages to a file."""
-        f = open(self.file_name,'w')
-        f.writelines(self.contents) 
-        f.close()
-        self.clear_logfile()
-        self.add_header()
-
+        with open(self.file_name, 'w') as f:
+            f.writelines(self.contents) 
+            self.clear_logfile()
+            self.add_header()
 
     def clear_logfile(self):
         """Clears all log messages."""
@@ -106,7 +104,7 @@ ________________________________________________________________
         """Redirects all print statements to a text file"""
         stdout = open(filename, 'w')
         sys.stdout = stdout
-        print '\nModerna Test Suite\n'
+        print('\nModerna Test Suite\n')
 
 
 

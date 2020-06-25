@@ -1,6 +1,6 @@
 
-from ResidueEditor import make_backbone_only_residue
-from BaseExchanger import exchange_base
-from ModificationAdder import add_modification
-from ModificationRemover import remove_modification
-from ModifyResidue import modify_residue
+from moderna.modifications.ResidueEditor import make_backbone_only_residue
+from moderna.modifications.BaseExchanger import exchange_base
+from moderna.modifications.ModificationAdder import add_modification
+from moderna.modifications.ModificationRemover import remove_modification
+from moderna.modifications.ModifyResidue import modify_residue

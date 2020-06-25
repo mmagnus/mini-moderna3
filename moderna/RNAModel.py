@@ -14,20 +14,20 @@ __maintainer__ = "Magdalena Rother"
 __email__ = "mmusiel@genesilico.pl"
 __status__ = "Production"
 
-from ModernaStructure import ModernaStructure
-from RNAResidue import RNAResidue
-from ModelingRecipe import RecipeMaker
-from Template import Template
-from ModernaFragment import ModernaFragment5, ModernaFragment3, keep_first, keep_last
-from FragmentInsertion import FragmentInserter
-from util.Errors import RnaModelError
-from ModernaSuperimposer import ModernaSuperimposer
-from sequence.ModernaSequence import Sequence
-from fragment_library.SearchLIR import FragmentFinder
-from modifications import exchange_base, add_modification, remove_modification, modify_residue, make_backbone_only_residue
-from modifications.ResidueEditor import ResidueEditor
-from Constants import PATH_TO_LIR_STRUCTURES, B_FACTOR_COPY, SINGLE_STRAND,  NUMBER_OF_FRAGMENT_CANDIDATES,  BACKBONE_ATOMS
-from util.LogFile import log
+from moderna.ModernaStructure import ModernaStructure
+from moderna.RNAResidue import RNAResidue
+from moderna.ModelingRecipe import RecipeMaker
+from moderna.Template import Template
+from moderna.ModernaFragment import ModernaFragment5, ModernaFragment3, keep_first, keep_last
+from moderna.FragmentInsertion import FragmentInserter
+from moderna.util.Errors import RnaModelError
+from moderna.ModernaSuperimposer import ModernaSuperimposer
+from moderna.sequence.ModernaSequence import Sequence
+from moderna.fragment_library.SearchLIR import FragmentFinder
+from moderna.modifications import exchange_base, add_modification, remove_modification, modify_residue, make_backbone_only_residue
+from moderna.modifications.ResidueEditor import ResidueEditor
+from moderna.Constants import PATH_TO_LIR_STRUCTURES, B_FACTOR_COPY, SINGLE_STRAND,  NUMBER_OF_FRAGMENT_CANDIDATES,  BACKBONE_ATOMS
+from moderna.util.LogFile import log
 
 
 class RnaModel(ModernaStructure):

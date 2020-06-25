@@ -18,7 +18,7 @@ __status__ = "Production"
 import math
 from math import pi
 from numpy import array
-from Bio.PDB.Vector import calc_dihedral
+from Bio.PDB.vectors import calc_dihedral
 
 # In the production version, the code needs to operate
 # on objects rather than files. We need to keep this

@@ -45,7 +45,7 @@ for calculating stacking:
 import sys
 from numpy import array, add, cross, sqrt, arccos
 from moderna import *
-from Constants import NORMAL_SUPPORT, ARCPI
+from moderna.Constants import NORMAL_SUPPORT, ARCPI
 
 STACKINGS = {
         (True, True): '>>', 
@@ -97,7 +97,7 @@ class ResidueVector(object):
         """Checks if all necessary atoms are present."""
         if self.normal_set:
             for name in self.normal_set:
-                if not self.atoms.has_key(name): 
+                if name not in self.atoms: 
                     return False
             return True
     
