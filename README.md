@@ -1,3 +1,4 @@
+Updated to Python3 and integrated into https://github.com/mmagnus/rna-tools/tree/master/rna_tools/tools/mini_moderna3 
 
 # ModeRNA - A program for comparative RNA modeling
 
